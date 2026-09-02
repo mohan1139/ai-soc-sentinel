@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 import time
-API = "http://localhost:8000"
+API = "https://ai-soc-sentinel-4.onrender.com"
 st.set_page_config(
     layout="wide",
     page_title="AI SOC SENTINEL",
