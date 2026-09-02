@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import pandas as pd
 import os
-from agents import analyze_logs
+from backend.agents import analyze_logs
 app = FastAPI(
     title="AI SOC Dashboard API",
     version="1.0"

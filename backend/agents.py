@@ -1,10 +1,10 @@
-from detection import predict
-from rules import apply_rules
-from severity import compute_severity
-from llm import explain
+from backend.detection import predict
+from backend.rules import apply_rules
+from backend.severity import compute_severity
+from backend.llm import explain
 def analyze_logs(df):
     try:
-        preds = predict(df)
+        preds, scores = predict(df)
     except Exception as e:
         return [{"error": f"Prediction failed: {str(e)}"}]
     results = []
@@ -12,7 +12,7 @@ def analyze_logs(df):
         try:
             log_data = row.to_dict()
             rules = apply_rules(row)
-            severity = compute_severity(preds[i], rules)
+            severity, severity_details = compute_severity(preds[i], scores[i], rules)
             explanation = None
             if severity in ["High", "Critical"]:
                 try:
@@ -20,10 +20,11 @@ def analyze_logs(df):
                 except Exception:
                     explanation = "LLM explanation failed"
             reasoning = {
-                "ml_anomaly": int(preds[i]),
-                "rules_triggered": rules,
-                "severity_logic": f"Score based on ML + {len(rules)} rule(s)"
-            }
+    "ml_anomaly": int(preds[i]),
+    "anomaly_score": float(scores[i]),
+    "rules_triggered": rules,
+    "severity_logic": severity_details
+}
             results.append({
                 "log": log_data,
                 "anomaly": int(preds[i]),

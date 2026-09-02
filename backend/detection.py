@@ -1,7 +1,8 @@
+import pandas as pd
 from sklearn.ensemble import IsolationForest
 import pickle
 import os
-from preprocessing import preprocess
+from backend.preprocessing import preprocess
 MODEL_PATH = "models/model.pkl"
 def train_model(df):
     X = preprocess(df)

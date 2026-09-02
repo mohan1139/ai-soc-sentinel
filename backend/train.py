@@ -1,6 +1,6 @@
 import pandas as pd
 import os
-from detection import train_model
+from backend.detection import train_model
 DATA_PATH = "data/logs.csv"
 def main():
     print("🚀 Starting model training...")
