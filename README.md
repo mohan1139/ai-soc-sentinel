@@ -1,4 +1,4 @@
-# 🛡️ AI SOC Dashboard
+# 🛡️ AI SOC SENTINEL
 
 An AI-powered **Security Operations Center (SOC) Dashboard** that detects anomalies in network traffic using Machine Learning, applies rule-based analysis, and generates **AI-driven threat explanations and mitigation strategies**.
 
@@ -172,7 +172,7 @@ ai-soc-dashboard/
 
 ## 👤 Author
 
-Khushi Sharma
+Veeramohan Balepalli
 
 ---
 
