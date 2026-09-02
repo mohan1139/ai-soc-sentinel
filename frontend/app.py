@@ -5,10 +5,10 @@ import time
 API = "http://localhost:8000"
 st.set_page_config(
     layout="wide",
-    page_title="AI SOC Dashboard",
+    page_title="AI SOC SENTINEL",
     page_icon="🛡️"
 )
-st.markdown("## 🛡️ AI SOC Dashboard")
+st.markdown("## 🛡️ AI SOC SENTINEL")
 st.caption("Real-time anomaly detection + AI threat analysis")
 if "data" not in st.session_state:
     st.session_state.data = None
